@@ -6,34 +6,35 @@ use Plugin\TestEccubePlugin\Repository\AccessCountRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="plg_test_eccube_plugin_access_count")
  * @ORM\Entity(repositoryClass=AccessCountRepository::class)
  */
 class AccessCount
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="id", type="integer", options={"unsigned":true})
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="bigint")
+     * @ORM\Column(name="count", type="bigint", options={"unsigned":true})
      */
     private $count;
 
     /**
-     * @ORM\Column(type="datetimetz")
+     * @ORM\Column(name="create_date", type="datetimetz")
      */
     private $create_date;
 
     /**
-     * @ORM\Column(type="datetimetz")
+     * @ORM\Column(name="update_date", type="datetimetz")
      */
     private $update_date;
 
